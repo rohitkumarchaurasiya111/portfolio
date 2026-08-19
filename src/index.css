@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /*
+   * Premium dark-tech theme (default). Every color, shadow and gradient the
+   * components use is driven from these variables, so toggling `.light` on
+   * <html> re-skins the entire site without touching component markup.
+   * RGB triples (not hex) so Tailwind's `rgb(var(--x) / <alpha-value>)` opacity
+   * modifiers keep working everywhere (e.g. `bg-accent-blue/10`).
+   */
+  :root {
+    color-scheme: dark;
+
+    --color-bg: 8 11 22;              /* #080B16 near-black navy */
+    --color-surface: 11 17 32;        /* #0B1120 */
+    --color-card: 15 22 40;           /* #0F1628 */
+    --color-elevated: 21 30 51;       /* #151E33 */
+
+    --color-border: 255 255 255 / 0.08;
+    --color-border-strong: 255 255 255 / 0.16;
+
+    --color-ink: 241 245 249;         /* slate-100 */
+    --color-ink-secondary: 148 163 184; /* slate-400 */
+    --color-ink-muted: 100 116 139;   /* slate-500 */
+
+    --color-accent-blue: 20 184 166;    /* teal-500 — primary accent (was electric blue) */
+    --color-accent-cyan: 45 212 191;    /* teal-400 — supporting highlight (was cyan-400) */
+    --color-accent-violet: 16 185 129;  /* emerald-500 — secondary accent (was violet-400) */
+
+    --color-signal-green: 52 211 153;  /* emerald-400 */
+    --color-signal-amber: 251 191 36;
+    --color-signal-red: 248 113 113;
+
+    --shadow-card: 0 1px 0 0 rgba(255,255,255,0.04) inset, 0 20px 50px -24px rgba(0,0,0,0.65);
+    --shadow-glow: 0 0 0 1px rgba(20,184,166,0.25), 0 0 40px -8px rgba(20,184,166,0.35);
+    --shadow-glow-violet: 0 0 0 1px rgba(16,185,129,0.25), 0 0 40px -8px rgba(16,185,129,0.35);
+    --shadow-glow-lg: 0 0 0 1px rgba(20,184,166,0.18), 0 30px 80px -20px rgba(20,184,166,0.28), 0 30px 80px -30px rgba(16,185,129,0.22);
+
+    --bg-grid-fade: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(20,184,166,0.14), transparent);
+    --bg-accent-line: linear-gradient(90deg, transparent, #14B8A6, #2DD4BF, #10B981, transparent);
+    --bg-dot-grid: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+
+    --focus-ring: 45 212 191;
+  }
+
+  /*
+   * Light mode: not an inversion — a distinct, bright Apple/Linear/Vercel-style
+   * surface with cool-gray canvas, navy ink and the same blue/violet/cyan accent
+   * family tuned for contrast on white.
+   */
+  .light {
+    color-scheme: light;
+
+    --color-bg: 248 250 252;          /* slate-50 */
+    --color-surface: 255 255 255;
+    --color-card: 255 255 255;
+    --color-elevated: 241 245 249;    /* slate-100 */
+
+    --color-border: 15 23 42 / 0.08;
+    --color-border-strong: 15 23 42 / 0.16;
+
+    --color-ink: 15 23 42;            /* slate-900 */
+    --color-ink-secondary: 71 85 105; /* slate-600 */
+    --color-ink-muted: 100 116 139;   /* slate-500 */
+
+    --color-accent-blue: 37 99 235;     /* blue-600 */
+    --color-accent-cyan: 8 145 178;     /* cyan-600 */
+    --color-accent-violet: 124 58 237;  /* violet-600 */
+
+    --color-signal-green: 5 150 105;
+    --color-signal-amber: 217 119 6;
+    --color-signal-red: 220 38 38;
+
+    --shadow-card: 0 1px 2px 0 rgba(15,23,42,0.04), 0 16px 40px -22px rgba(15,23,42,0.14);
+    --shadow-glow: 0 0 0 1px rgba(37,99,235,0.14), 0 18px 40px -18px rgba(37,99,235,0.24);
+    --shadow-glow-violet: 0 0 0 1px rgba(124,58,237,0.14), 0 18px 40px -18px rgba(124,58,237,0.24);
+    --shadow-glow-lg: 0 0 0 1px rgba(37,99,235,0.10), 0 24px 60px -20px rgba(37,99,235,0.16);
+
+    --bg-grid-fade: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(37,99,235,0.06), transparent);
+    --bg-accent-line: linear-gradient(90deg, transparent, #2563EB, #0891B2, #7C3AED, transparent);
+    --bg-dot-grid: radial-gradient(circle, rgba(15,23,42,0.06) 1px, transparent 1px);
+
+    --focus-ring: 37 99 235;
+  }
+
+  html {
+    @apply scroll-smooth;
+    background-color: rgb(var(--color-bg));
+  }
+
+  body {
+    @apply bg-bg text-ink font-sans antialiased selection:bg-accent-blue/70 selection:text-white transition-colors duration-500;
+    font-feature-settings: 'ss01' 1, 'cv01' 1;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgb(var(--color-bg));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--color-border-strong));
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--color-ink-muted));
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--focus-ring));
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Applied by CustomCursor.tsx only on fine-pointer, motion-friendly desktops. */
+  html.custom-cursor,
+  html.custom-cursor * {
+    cursor: none !important;
+  }
+}
+
+@layer components {
+  .container-px {
+    @apply px-5 xs:px-6 md:px-10 2xl:px-0;
+  }
+
+  .section {
+    @apply mx-auto w-full max-w-content container-px py-20 md:py-28 2xl:py-32;
+  }
+
+  .eyebrow {
+    @apply font-mono text-caption uppercase tracking-[0.18em] text-ink-muted;
+  }
+
+  .card-surface {
+    @apply rounded-lg border border-border bg-card shadow-card;
+  }
+
+  .glass-panel {
+    @apply rounded-lg border border-border shadow-card backdrop-blur-xl;
+    background-color: rgb(var(--color-card) / 0.7);
+  }
+
+  .input {
+    @apply w-full rounded-md border border-border bg-elevated px-4 py-3 text-small text-ink placeholder:text-ink-muted transition-colors duration-300;
+  }
+  .input:focus {
+    @apply border-accent-cyan/50 outline-none;
+  }
+
+  .link-underline {
+    position: relative;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-blue via-accent-cyan to-accent-violet;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}

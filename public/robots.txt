@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rohitkumarchaurasiya.dev/sitemap.xml

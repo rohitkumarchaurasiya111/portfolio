@@ -56,29 +56,6 @@ and engineering approach.
 - **Performance-focused** — Lightweight frontend architecture with
   optimized dependencies and locally extracted technology icons.
 
-## Tech Stack
-
-**Frontend**
-
-React 19 · TypeScript · Vite · Tailwind CSS · Framer Motion ·
-React Router · Lucide Icons
-
-**Backend**
-
-Java · Spring Boot · REST APIs · Spring Security · JPA · Hibernate
-
-**Database**
-
-MySQL · MongoDB
-
-**Tools**
-
-Git · GitHub · Docker · Jenkins · Maven · JUnit · Selenium · Workato
-
-**Email**
-
-Resend
-
 ## Project Structure
 
 ```text
@@ -140,41 +117,6 @@ VITE_CONTACT_ENDPOINT=
 
 Never commit `.env`.
 
-## Build
-
-Create a production build:
-```bash
-npm run build
-```
-Preview the production build:
-
-```bash
-npm run preview
-```
-
-## Customization
-
-Most portfolio content is maintained inside:
-```bash
-src/data/
-```
-
-
-## Before Deployment
-
-- [ ] Add the final `public/resume.pdf`
-- [ ] Verify LinkedIn URL
-- [ ] Verify GitHub URL
-- [ ] Verify email address
-- [ ] Verify all project live URLs
-- [ ] Add GitHub repository URLs where publicly available
-- [ ] Replace the placeholder favicon
-- [ ] Replace the placeholder OpenGraph image
-- [ ] Update the canonical URL in `index.html`
-- [ ] Configure production environment variables
-- [ ] Test the contact form
-- [ ] Test the website on mobile and desktop
-- [ ] Run `npm run build` successfully
 
 ## License
 

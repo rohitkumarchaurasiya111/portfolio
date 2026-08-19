@@ -76,7 +76,7 @@ export function Experience() {
       <div id="education" className="mt-16 border-t border-border pt-12">
         <p className="eyebrow mb-6">Education</p>
         {education.map((edu) => (
-          <div key={edu.institution} className="flex items-start gap-4">
+          <div key={edu.institution} className="flex items-start gap-4 mb-5">
             <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border bg-card">
               <GraduationCap size={18} className="text-accent-cyan" />
             </span>

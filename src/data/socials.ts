@@ -12,7 +12,7 @@ export const socials: SocialLink[] = [
   },
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/rohitkumarchaurasiya',
+    href: 'https://www.linkedin.com/in/rohit-kumar-chaurasiya-0862b1272/',
     icon: 'linkedin',
   },
   {
@@ -22,7 +22,7 @@ export const socials: SocialLink[] = [
   },
   {
     label: 'Phone',
-    href: 'tel:+9779809150152',
+    href: 'tel:+918521425825',
     icon: 'phone',
   },
 ]

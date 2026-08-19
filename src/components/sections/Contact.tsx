@@ -87,7 +87,7 @@ export function Contact() {
               <Button onClick={() => nameRef.current?.focus()} showArrow>
                 Start a Conversation
               </Button>
-              <Button href={`mailto:${emailAddress}`} variant="secondary">
+              <Button onClick={handleCopyEmail} aria-label="Copy email address" variant="secondary">
                 Email Me
               </Button>
               {phoneSocial && (

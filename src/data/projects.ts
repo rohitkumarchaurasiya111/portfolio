@@ -1,4 +1,9 @@
-export type ProjectCategory = 'Full Stack' | 'Web' | 'Mobile' | 'Enterprise' | 'Other'
+export type ProjectCategory =
+  | 'Full Stack'
+  | 'Web'
+  | 'Mobile'
+  | 'Enterprise'
+  | 'Other'
 
 export interface CaseStudy {
   problem: string
@@ -20,7 +25,6 @@ export interface Project {
   image: string
   technologies: string[]
   features: string[]
-  /** Leave empty until a public URL exists — the UI hides the button rather than faking a link. */
   liveUrl: string
   githubUrl: string
   featured: boolean
@@ -28,55 +32,119 @@ export interface Project {
   caseStudy: CaseStudy
 }
 
-// Edit this file to add, remove or reorder projects — the UI reads directly from this array.
-// Do not add metrics, user counts or testimonials that haven't actually been verified.
 export const projects: Project[] = [
   {
     slug: 'noteslink',
     title: 'NotesLink',
     category: 'Full Stack',
     description:
-      'A full-stack academic resource platform that centralizes hundreds of study notes and past exam papers into a single searchable interface, cutting down the time students spend hunting for resources.',
-    image: '/projects/noteslink-cover.svg',
-    technologies: ['Java', 'Spring Boot', 'React', 'Tailwind CSS', 'MySQL'],
-    features: [
-      'Searchable, filterable library of notes and past papers organized by course and semester',
-      'Responsive React + Tailwind CSS frontend backed by a Spring Boot REST API',
-      'MySQL-backed content store supporting 1,000+ monthly uploads and user interactions',
-      'Optimized search and filtering for faster content access across 5,000+ active users',
+      'A full-stack academic resource platform that brings study notes and past exam papers into a single searchable platform, serving 5,000+ active users.',
+    image: '/projects/NotesLinkFullLogo.png',
+    technologies: [
+      'Java',
+      'Spring Boot',
+      'React',
+      'Tailwind CSS',
+      'MySQL',
+      'JWT',
+      'OAuth',
     ],
-    liveUrl: '',
+    features: [
+      'Searchable and filterable library of notes, past papers and solutions',
+      'Responsive React + Tailwind CSS frontend backed by Spring Boot REST APIs',
+      'Role-based access and authentication using JWT and Google OAuth',
+      'MySQL-backed content platform supporting 1,000+ monthly uploads and interactions',
+      'College-specific content organization and access control',
+    ],
+    liveUrl: 'https://noteslink.in',
     githubUrl: '',
     featured: true,
     status: 'Shipped',
     caseStudy: {
       problem:
-        'Study notes and past exam papers were scattered across group chats, drives and personal folders, with no single searchable place for students to find what they needed before exams.',
+        'Academic resources were scattered across group chats, cloud drives and personal folders, making it difficult for students to quickly find relevant notes and previous-year papers.',
       solution:
-        'A full-stack academic resource platform that centralizes notes and past papers into one searchable, filterable interface, so students can find the right resource by course and topic instead of scrolling through chat history.',
+        'Built a centralized academic resource platform where students can discover, search and filter study materials by subject, semester and resource type.',
       architecture:
-        'A responsive React + Tailwind CSS frontend talks to a Spring Boot REST API, which persists notes, papers and user activity in a MySQL database.',
-      flow: ['React + Tailwind Frontend', 'Spring Boot REST API', 'MySQL'],
+        'A React + Tailwind CSS frontend communicates with a Java Spring Boot REST API, which handles authentication, authorization, resource management and business logic before persisting data in MySQL.',
+      flow: [
+        'React + Tailwind CSS Frontend',
+        'Spring Boot REST API',
+        'Authentication & Authorization',
+        'MySQL Database',
+      ],
       challenges:
-        'Keeping search and filtering fast and relevant as the library grew across hundreds of notes and past papers spanning multiple courses and semesters was the main technical focus, alongside handling a steady stream of monthly uploads without the interface feeling cluttered.',
+        'The main challenge was designing a scalable content and search experience that remained easy to navigate as the number of resources, users and uploads grew across different subjects and colleges.',
       results:
-        'The platform now supports 1,000+ monthly uploads and interactions from 5,000+ active users, with optimized search and filtering making content noticeably faster to find.',
+        'The platform supports 5,000+ active users and 1,000+ monthly uploads and interactions, providing students with a centralized and faster way to access academic resources.',
       lessonsLearned:
-        'A focused, well-indexed search experience matters more to users than a large feature set — getting students to the right note in a few clicks was worth more than any amount of extra functionality.',
+        'Building a real product taught me that good engineering is not only about writing APIs and database queries, but also about understanding how users discover information and designing the entire experience around that workflow.',
     },
   },
+
+  // {
+  //   slug: 'vibesync',
+  //   title: 'VibeSync',
+  //   category: 'Full Stack',
+  //   description:
+  //     'A real-time communication platform inspired by modern video-conferencing applications, built to explore real-time collaboration and scalable web application architecture.',
+  //   image: '/projects/vibesync-cover.svg',
+  //   technologies: [
+  //     'JavaScript',
+  //     'React',
+  //     'WebRTC',
+  //     'REST APIs',
+  //   ],
+  //   features: [
+  //     'Real-time video communication',
+  //     'Interactive meeting experience',
+  //     'Real-time participant interaction',
+  //     'Responsive web interface',
+  //   ],
+  //   liveUrl: '',
+  //   githubUrl: '',
+  //   featured: false,
+  //   status: 'In development',
+  //   caseStudy: {
+  //     problem:
+  //       'Modern communication tools require reliable real-time interaction while keeping the user experience simple and responsive across different devices and network conditions.',
+  //     solution:
+  //       'Built VibeSync as a video-conferencing style application to explore real-time communication, interactive meeting workflows and the engineering challenges behind collaborative web applications.',
+  //     architecture:
+  //       'The application combines a React-based frontend with real-time communication technologies and backend APIs to coordinate meeting and participant interactions.',
+  //     flow: [
+  //       'React Frontend',
+  //       'Meeting & Communication Layer',
+  //       'Backend APIs',
+  //     ],
+  //     challenges:
+  //       'Real-time applications introduce challenges that are different from conventional CRUD applications, particularly around maintaining responsive communication and coordinating participant state.',
+  //     results:
+  //       'The project provided hands-on experience designing and implementing the core architecture of a real-time communication application.',
+  //     lessonsLearned:
+  //       'Real-time applications require thinking about state, communication and failure scenarios differently from traditional request-response applications.',
+  //   },
+  // },
+
   {
     slug: 'kiit-mun',
     title: 'KIIT MUN',
     category: 'Web',
     description:
-      'The backend for a centralized Model United Nations event platform, delivering real-time updates across multiple committees and sessions, with QR-code attendance tracking for hundreds of attendees.',
+      'A centralized event platform for Model United Nations, with QR-based attendance tracking and backend APIs supporting real-time event workflows across committees and sessions.',
     image: '/projects/kiitmun-cover.svg',
-    technologies: ['Java', 'Spring Boot', 'MySQL'],
+    technologies: [
+      'Java',
+      'Spring Boot',
+      'MySQL',
+      'REST APIs',
+    ],
     features: [
-      'Real-time updates across multiple committees and sessions during a live multi-day event',
-      'QR code–based attendance tracking to replace manual check-in sheets',
-      'Secure backend APIs built with Java Spring Boot and MySQL',
+      'QR code–based attendance tracking',
+      'Secure backend APIs for event workflows',
+      'Real-time updates across committees and sessions',
+      'Centralized participant and event data management',
+      'Support for hundreds of delegates and organizers',
     ],
     liveUrl: '',
     githubUrl: '',
@@ -84,21 +152,72 @@ export const projects: Project[] = [
     status: 'Shipped',
     caseStudy: {
       problem:
-        'Manual, paper-based check-in for a multi-committee Model United Nations conference was slow and error-prone, and organizers had no live view of attendance or session status across committees.',
+        'Managing attendance and event information manually during a multi-committee Model United Nations event was time-consuming and prone to errors.',
       solution:
-        'Engineered the backend for a centralized event platform that tracks attendance via QR codes and pushes real-time status updates across committees and sessions.',
+        'Engineered the backend for a centralized event platform that digitized attendance using QR codes and provided real-time event information across committees and sessions.',
       architecture:
-        'A Java Spring Boot backend exposes secure REST APIs for check-in, committee and session data, backed by a MySQL database, consumed by the event-day client used at check-in desks.',
-      flow: ['Event Client / Check-in Desk', 'Spring Boot REST API', 'MySQL'],
+        'A Java Spring Boot backend exposes REST APIs for attendance, participant and event workflows, with MySQL used for persistent data storage.',
+      flow: [
+        'Event Client',
+        'Spring Boot REST API',
+        'MySQL Database',
+      ],
       challenges:
-        'Attendance scanning needed to hold up under real event-day load — hundreds of attendees checking in across overlapping committee sessions — without slow lookups or duplicate check-ins.',
+        'The system needed to reliably handle attendance and event operations while multiple committees and sessions were running concurrently.',
       results:
-        'QR-based check-in reduced manual attendance time and errors across the event, with organizers able to see real-time updates across committees and sessions instead of relying on paper logs.',
+        'The platform reduced manual attendance operations and improved data accuracy while supporting hundreds of delegates and organizers.',
       lessonsLearned:
-        'Designing backend APIs around the actual physical flow of an event — queues, desks, overlapping sessions — matters as much as the data model itself; a technically correct API can still fail on the day if it does not match how people actually move through the event.',
+        'Building software for a live event highlighted the importance of designing backend systems around real-world operational workflows rather than only around database entities.',
+    },
+  },
+
+  {
+    slug: 'sorting-visualizer',
+    title: 'Sorting Visualizer',
+    category: 'Web',
+    description:
+      'An interactive web application that visualizes sorting algorithms in real time, making algorithm behavior and performance easier to understand.',
+    image: '/projects/sortingvisualizer-cover.png',
+    technologies: [
+      'JavaScript',
+      'HTML',
+      'CSS',
+    ],
+    features: [
+      'Real-time visualization of sorting algorithms',
+      'Interactive algorithm execution',
+      'Visual comparison of sorting behavior',
+      'Educational interface for understanding algorithm performance',
+    ],
+    liveUrl: 'https://sortingvisualizer.noteslink.in/',
+    githubUrl: 'https://github.com/rohitkumarchaurasiya111/Sorting_Visualizer',
+    featured: false,
+    status: 'Shipped',
+    caseStudy: {
+      problem:
+        'Understanding sorting algorithms from code alone can make it difficult to visualize how elements move and how different algorithms behave during execution.',
+      solution:
+        'Created an interactive visualizer that demonstrates sorting algorithms step by step through real-time animations.',
+      architecture:
+        'A browser-based frontend implements the sorting algorithms in JavaScript and renders their execution dynamically using HTML and CSS.',
+      flow: [
+        'User Interaction',
+        'JavaScript Sorting Algorithm',
+        'Real-time Visualization',
+      ],
+      challenges:
+        'The main challenge was coordinating algorithm execution with visual updates so that each step remained understandable without making the animation feel disconnected from the underlying algorithm.',
+      results:
+        'The application provides an interactive way to understand sorting algorithms and compare their execution behavior visually.',
+      lessonsLearned:
+        'Visualization can make algorithmic concepts significantly easier to understand, and designing the interface around the underlying computation is an important part of building educational software.',
     },
   },
 ]
 
-export const featuredProject = projects.find((p) => p.featured) ?? projects[0]
-export const secondaryProjects = projects.filter((p) => p.slug !== featuredProject.slug)
+export const featuredProject =
+  projects.find((p) => p.featured) ?? projects[0]
+
+export const secondaryProjects = projects.filter(
+  (p) => p.slug !== featuredProject.slug
+)

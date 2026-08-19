@@ -2,26 +2,27 @@ import { motion } from 'framer-motion'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 
 const DISCIPLINES = [
-  'Frontend engineering',
+  'Full-Stack Development',
   'Backend engineering',
   'API development',
   'Database architecture',
   'Authentication',
-  'UI/UX',
+  'System Design',
   'Deployment',
   'Debugging',
   'Performance optimization',
 ]
 
 const STATS = [
-  { value: '9.6', label: 'CGPA' },
-  { value: 'Full-Stack', label: 'Developer' },
+  { value: 'IIT Madras', label: 'INSTITUTE' },
+  { value: 'M.Tech CSE', label: 'PROGRAM' },
   { value: '5,000+', label: 'Users Served' },
-  { value: 'KIIT', label: 'Final-Year' },
+  { value: 'Software Engineering Intern', label: 'EXPERIENCE'},
+  { value: 'B.Tech CSE — KIIT, 9.75 CGPA', label: 'Bachelor' },
 ]
 
 // What the work actually spans, per project — not a skill-rating claim.
-const FOCUS_AREAS = ['Architecture', 'UX', 'Performance', 'Scalability']
+const FOCUS_AREAS = ['Architecture', 'Scalability', 'Performance', 'Product']
 
 export function About() {
   return (
@@ -36,12 +37,8 @@ export function About() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
           <p className="text-body text-ink-secondary">
-            I'm a final-year Computer Science student who has spent the last year building
-            full-stack applications in a fast-paced product environment — from a tenant
-            onboarding portal used by real consultants to an academic resource platform serving
-            thousands of students. I care as much about how an interface feels to use as I do
-            about how a query performs under load, and I like owning a problem from schema to
-            pixel.
+            I’m a first-year M.Tech Computer Science and Engineering student at IIT Madras with hands-on experience building full-stack applications through internships and personal projects. I’ve worked on production systems, backend APIs, automation workflows, and scalable web applications — including platforms serving 5,000+ users. I enjoy turning real-world problems into reliable, intuitive products, with a strong focus on backend engineering, system design, performance, and user experience.
+
           </p>
 
           <ul className="mt-8 flex flex-wrap gap-x-3 gap-y-3">

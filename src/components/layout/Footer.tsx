@@ -24,10 +24,10 @@ export function Footer() {
       <div className="mx-auto grid max-w-content gap-10 container-px py-14 sm:grid-cols-3 md:py-16">
         <div>
           <p className="font-mono text-small font-semibold text-ink">
-            RKC<span className="text-accent-cyan">.</span>
+            ROHIT<span className="text-accent-cyan">.</span>
           </p>
           <p className="mt-2 font-mono text-caption uppercase tracking-[0.14em] text-ink-muted">
-            Full-Stack Developer
+            Software Engineer
           </p>
         </div>
 
@@ -84,7 +84,7 @@ export function Footer() {
       </div>
 
       <div className="mx-auto flex max-w-content flex-col gap-2 border-t border-border container-px py-6 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
-        <p className="font-mono text-caption text-ink-muted">© 2026 RKC.</p>
+        <p className="font-mono text-caption text-ink-muted">© 2026</p>
         <p className="font-mono text-caption text-ink-muted">Built with modern web technologies.</p>
       </div>
     </footer>

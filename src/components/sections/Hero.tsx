@@ -4,9 +4,7 @@ import { HeroPhotoCard } from '@/components/sections/HeroPhotoCard'
 import { HeroBackground } from '@/components/sections/HeroBackground'
 import { socials } from '@/data/socials'
 
-// Curated, not the full skills list — mirrors the 4-5 pill "highlight reel" pattern
-// from the reference design. Edit freely; keep it to your strongest, most relevant stack.
-const HIGHLIGHT_STACK = ['React', 'Java', 'Spring Boot', 'MySQL', 'MongoDB']
+const HIGHLIGHT_STACK = ['React', 'Java', 'Spring Boot', 'MySQL', 'Python']
 
 const githubHref = socials.find((s) => s.icon === 'github')?.href ?? '#'
 
@@ -67,9 +65,8 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.24, ease: [0.16, 1, 0.3, 1] }}
             className="mt-5 max-w-lg text-body text-ink-secondary"
           >
-            Final-year Computer Science student with hands-on experience in full-stack
-            development — building backend systems, working with relational and document
-            databases, and shipping responsive, production-ready web applications.
+            First-year M.Tech Computer Science and Engineering student at IIT Madras with hands-on experience in full-stack development through internships and projects — building scalable backend systems, working with relational databases, and developing production-ready web applications.
+
           </motion.p>
 
           <motion.ul

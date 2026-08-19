@@ -56,7 +56,7 @@ export function Navbar() {
             className="font-mono text-small font-semibold tracking-tight text-ink"
             aria-label="Rohit Kumar Chaurasiya — back to top"
           >
-            RKC<span className="text-accent-cyan">.</span>
+            ROHIT<span className="text-accent-cyan">.</span>
           </a>
 
           <ul className="hidden items-center gap-1 md:flex">
